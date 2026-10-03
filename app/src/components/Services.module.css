@@ -1,0 +1,11 @@
+.section { padding: clamp(44px, 6vw, 96px) var(--pad); background: var(--pist); }
+.list { border-bottom: 2px solid var(--forest); }
+.item {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(12px, 4vw, 64px);
+  align-items: baseline; padding: clamp(20px, 2.4vw, 30px) 0; border-top: 2px solid var(--forest);
+}
+.name { font: 600 clamp(19px, 1.9vw, 26px)/1.25 var(--font-display); letter-spacing: -.02em; }
+.text { max-width: 30em; font-size: 18px; }
+@media (max-width: 860px) {
+  .item { grid-template-columns: 1fr; gap: 8px; }
+}

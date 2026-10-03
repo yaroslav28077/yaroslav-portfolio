@@ -1,0 +1,4 @@
+.section { padding: clamp(44px, 6vw, 88px) var(--pad); background: var(--forest); color: var(--white); }
+.title { max-width: 14em; font: 800 clamp(26px, 3.6vw, 50px)/1.1 var(--font-display); letter-spacing: -.03em; }
+.text { max-width: 32em; margin-top: 16px; color: var(--on-forest-muted); }
+.links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }

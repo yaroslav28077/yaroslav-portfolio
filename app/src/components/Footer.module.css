@@ -1,0 +1,9 @@
+.footer {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 32px;
+  padding: 20px var(--pad) 28px; background: var(--forest); color: #BFD6AE; font-size: 15px;
+  border-top: 1px solid #245238;
+}
+.who { color: var(--white); font-weight: 600; }
+.nav, .contacts { display: flex; flex-wrap: wrap; gap: 0 20px; }
+.nav a, .contacts a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer a:focus-visible { outline-color: var(--tang); }

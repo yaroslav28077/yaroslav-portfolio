@@ -1,0 +1,9 @@
+.head {
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 64px); align-items: end; margin-bottom: clamp(32px, 4vw, 60px);
+}
+.title { font: 800 clamp(26px, 3.6vw, 52px)/1.1 var(--font-display); letter-spacing: -.03em; }
+.intro { max-width: 34em; color: var(--muted); font-size: 17px; }
+@media (max-width: 860px) {
+  .head { grid-template-columns: 1fr; gap: 12px; }
+}

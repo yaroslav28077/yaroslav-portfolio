@@ -1,0 +1,19 @@
+.button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 56px; padding: 0 30px;
+  font: 600 17px/1.2 var(--font-text); text-align: center; text-decoration: none;
+  border: 2px solid var(--forest); border-radius: 99px;
+  transition: background-color .18s, color .18s, border-color .18s;
+}
+.solid { background: var(--forest); color: var(--white); }
+.solid:hover { background: var(--forest-deep); }
+.line { background: transparent; color: var(--forest); }
+.line:hover { background: var(--forest); color: var(--white); }
+.inverse { background: var(--pist); color: var(--forest); border-color: var(--pist); }
+.inverse:hover { background: var(--white); border-color: var(--white); }
+.inverseLine { background: transparent; color: var(--white); border-color: var(--white); }
+.inverseLine:hover { background: var(--white); color: var(--forest); }
+.inverse:focus-visible, .inverseLine:focus-visible { outline-color: var(--tang); }
+@media (max-width: 860px) {
+  .button { width: 100%; }
+}

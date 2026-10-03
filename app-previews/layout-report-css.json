@@ -1,0 +1,157 @@
+{
+ "360": {
+  "pageOverflow": false,
+  "wide": [],
+  "interactive": 26,
+  "small": [],
+  "textOut": [],
+  "lowContrast": [],
+  "ctaFirstScreen": [
+   "Переглянути роботи",
+   "Обговорити проєкт"
+  ],
+  "heroBottom": 860,
+  "minFont": 15,
+  "unloadedBeforeScroll": [
+   "cprpp-desktop-9-JAsBIS.webp",
+   "cprpp-mobile-sF30DF3M.webp",
+   "history-desktop-Dqf9zOg6.webp",
+   "history-mobile-DQMtRZpr.webp"
+  ],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "fonts": [
+   "Unbounded",
+   "Commissioner"
+  ],
+  "images": {
+   "total": 12,
+   "lazy": 8,
+   "notLoaded": []
+  },
+  "overflowAfterScroll": false
+ },
+ "390": {
+  "pageOverflow": false,
+  "wide": [],
+  "interactive": 26,
+  "small": [],
+  "textOut": [],
+  "lowContrast": [],
+  "ctaFirstScreen": [
+   "Переглянути роботи",
+   "Обговорити проєкт"
+  ],
+  "heroBottom": 832,
+  "minFont": 15,
+  "unloadedBeforeScroll": [
+   "cprpp-desktop-9-JAsBIS.webp",
+   "cprpp-mobile-sF30DF3M.webp",
+   "history-desktop-Dqf9zOg6.webp",
+   "history-mobile-DQMtRZpr.webp"
+  ],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "fonts": [
+   "Unbounded",
+   "Commissioner"
+  ],
+  "images": {
+   "total": 12,
+   "lazy": 8,
+   "notLoaded": []
+  },
+  "overflowAfterScroll": false
+ },
+ "768": {
+  "pageOverflow": false,
+  "wide": [],
+  "interactive": 26,
+  "small": [],
+  "textOut": [],
+  "lowContrast": [],
+  "ctaFirstScreen": [
+   "Переглянути роботи",
+   "Обговорити проєкт"
+  ],
+  "heroBottom": 844,
+  "minFont": 15,
+  "unloadedBeforeScroll": [
+   "cprpp-desktop-9-JAsBIS.webp",
+   "cprpp-mobile-sF30DF3M.webp",
+   "history-desktop-Dqf9zOg6.webp",
+   "history-mobile-DQMtRZpr.webp"
+  ],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "fonts": [
+   "Unbounded",
+   "Commissioner"
+  ],
+  "images": {
+   "total": 12,
+   "lazy": 8,
+   "notLoaded": []
+  },
+  "overflowAfterScroll": false
+ },
+ "1024": {
+  "pageOverflow": false,
+  "wide": [],
+  "interactive": 31,
+  "small": [],
+  "textOut": [],
+  "lowContrast": [],
+  "ctaFirstScreen": [
+   "Переглянути роботи",
+   "Обговорити проєкт"
+  ],
+  "heroBottom": 792,
+  "minFont": 15,
+  "unloadedBeforeScroll": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "fonts": [
+   "Unbounded",
+   "Commissioner"
+  ],
+  "images": {
+   "total": 12,
+   "lazy": 8,
+   "notLoaded": []
+  },
+  "overflowAfterScroll": false
+ },
+ "1440": {
+  "pageOverflow": false,
+  "wide": [],
+  "interactive": 31,
+  "small": [],
+  "textOut": [],
+  "lowContrast": [],
+  "ctaFirstScreen": [
+   "Переглянути роботи",
+   "Обговорити проєкт"
+  ],
+  "heroBottom": 858,
+  "minFont": 14,
+  "unloadedBeforeScroll": [
+   "cprpp-desktop-9-JAsBIS.webp",
+   "cprpp-mobile-sF30DF3M.webp",
+   "history-desktop-Dqf9zOg6.webp",
+   "history-mobile-DQMtRZpr.webp"
+  ],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "fonts": [
+   "Unbounded",
+   "Commissioner"
+  ],
+  "images": {
+   "total": 12,
+   "lazy": 8,
+   "notLoaded": []
+  },
+  "overflowAfterScroll": false
+ }
+}

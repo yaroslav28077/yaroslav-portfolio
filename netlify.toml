@@ -1,0 +1,19 @@
+# Netlify: статичний сайт (Vite + React). Серверних функцій і client-side маршрутів немає,
+# тому SPA-перенаправлення «/* → /index.html» навмисно НЕ додано (воно сховало б справжні 404).
+#
+# Структура репозиторію: корінь = цей файл, застосунок у каталозі app/.
+# Усі шляхи нижче відраховуються від base.
+
+[build]
+  base = "app"                  # де лежать package.json та package-lock.json
+  command = "npm run build"     # tsc --noEmit && vite build (залежності Netlify ставить сам: npm ci за lock-файлом)
+  publish = "dist"              # app/dist
+
+  [build.environment]
+    NODE_VERSION = "22"         # збірку перевірено на Node 22.23 і 20.19; Vite 8 вимагає ^20.19 або >=22.12
+    # SITE_URL, ROBOTS_NOINDEX не задаються тут: це налаштування сайту, їх вказують у Netlify UI
+    # (Site configuration → Environment variables). Див. README.md, розділ «SITE_URL».
+
+# ---- Заголовки безпеки і кешування ----
+# Живуть у app/netlify-headers.txt: збірка кладе їх у dist/_headers, тому вони діють і при деплої з Git, і при ручному
+# завантаженні dist. Тут їх свідомо немає, щоб не дублювати правила. CSP не додано (див. коментар у цьому файлі): вона може зламати WebGL.

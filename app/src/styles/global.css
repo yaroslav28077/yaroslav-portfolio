@@ -1,0 +1,63 @@
+/* Шрифти: Unbounded (заголовки) і Commissioner (текст), локально, підмножини cyrillic + latin. */
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 600; font-display: swap; src: url('../assets/fonts/unbounded-cyrillic-600.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 600; font-display: swap; src: url('../assets/fonts/unbounded-latin-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 800; font-display: swap; src: url('../assets/fonts/unbounded-cyrillic-800.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 800; font-display: swap; src: url('../assets/fonts/unbounded-latin-800.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Commissioner'; font-style: normal; font-weight: 400; font-display: swap; src: url('../assets/fonts/commissioner-cyrillic-400.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Commissioner'; font-style: normal; font-weight: 400; font-display: swap; src: url('../assets/fonts/commissioner-latin-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Commissioner'; font-style: normal; font-weight: 600; font-display: swap; src: url('../assets/fonts/commissioner-cyrillic-600.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Commissioner'; font-style: normal; font-weight: 600; font-display: swap; src: url('../assets/fonts/commissioner-latin-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+:root {
+  /* палітра «Зразків» */
+  --pist: #D8EBB5;
+  --pist-deep: #C5DF98;
+  --forest: #0F4127;
+  --forest-deep: #072915;
+  --muted: #2F5440;
+  --white: #FFFFFF;
+  --linen: #F7FAEF;
+  --tang: #FF8A2B;
+  --on-forest-muted: #D4E6C4;
+
+  --font-display: 'Unbounded', system-ui, sans-serif;
+  --font-text: 'Commissioner', system-ui, sans-serif;
+
+  --radius-card: 10px;
+  --radius-img: 6px;
+  --pad: clamp(20px, 4.4vw, 64px);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0; overflow-x: hidden;
+  background: var(--pist); color: var(--forest);
+  font: 400 18px/1.55 var(--font-text);
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+a, button { touch-action: manipulation; } /* без затримки подвійного дотику; щіпок-масштабування лишається */
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; }
+[id] { scroll-margin-top: 16px; }
+
+.skip-link:not(:focus) {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+.skip-link:focus {
+  position: fixed; top: 12px; left: 12px; z-index: 100; padding: 12px 20px;
+  background: var(--forest); color: var(--white); border-radius: 99px; font-weight: 600; text-decoration: none;
+}
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

@@ -1,0 +1,112 @@
+/* Віяло: CSS-трансформації. Основний творчий акцент; решта секцій спокійні. */
+.showcase {
+  --card-w: 260px; --card-h: 500px; --fan-visible: 430px; --shift: 0px; --strip: 118px;
+  --bleed: 96px; /* canvas ширший за колонку: віяло виступає за неї, нахил і hover не мають зрізатися. Праворуч поле не більше за відступ hero (--pad): далі hero однаково обрізає, а canvas не ширить сторінку */
+  position: relative; min-width: 0;
+}
+
+/* Підпис — мандаринова смуга з виносною лінією до вибраної картки */
+.caption {
+  position: absolute; left: 0; right: 0; bottom: calc(var(--fan-visible) + 72px); z-index: 8;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 12px 14px 12px 18px;
+  background: var(--tang); border: 2px solid var(--forest); border-radius: var(--radius-card);
+}
+.captionText { min-width: 0; }
+.captionLabel { font-size: 14px; font-weight: 600; line-height: 1.3; }
+.captionName { font: 600 20px/1.25 var(--font-text); }
+.captionMeta { font-size: 15px; line-height: 1.35; }
+.captionLink {
+  flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px;
+  background: var(--forest); color: var(--white); border-radius: 99px;
+  font-weight: 600; font-size: 16px; text-decoration: none; white-space: nowrap;
+}
+.captionLink:hover { background: var(--forest-deep); }
+.captionLink:focus-visible { outline-offset: 3px; }
+.leader {
+  position: absolute; top: 100%; left: var(--pointer-x, 50%);
+  width: 2px; height: var(--pointer-len, 60px); margin-left: -1px;
+  background: var(--forest);
+  transition: left .28s var(--ease), height .28s var(--ease);
+}
+.leader::after {
+  content: ''; position: absolute; left: 50%; bottom: -5px; width: 10px; height: 10px; margin-left: -5px;
+  border-radius: 50%; background: var(--forest);
+}
+
+.fan { position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--card-h) + 60px); }
+.card {
+  position: absolute;
+  left: calc(50% - var(--card-w) / 2 + var(--shift));
+  bottom: calc(var(--fan-visible) - var(--card-h));
+  width: var(--card-w); height: var(--card-h);
+  display: flex; flex-direction: column; padding: 0; overflow: hidden;
+  background: var(--white); color: var(--forest); text-align: left; cursor: pointer;
+  border: 2px solid var(--forest); border-radius: var(--radius-card);
+  transform-origin: 50% 165%;
+  transform: rotate(var(--r)) translateY(0);
+  transition: transform .28s var(--ease), box-shadow .28s var(--ease);
+}
+.cardTop {
+  display: block; flex: 0 0 auto; min-height: 78px; padding: 9px 12px; max-width: 100%;
+  background: var(--white); border-bottom: 2px solid var(--forest);
+  font: 600 15px/1.22 var(--font-text);
+}
+/* Праворуч картку частково закриває сусідка: назва не має заходити під неї (остання картка видна повністю) */
+.card:not(:last-child) .cardTop { padding-right: max(12px, calc(var(--card-w) - var(--strip) + 14px)); }
+.card img { width: 100%; flex: 1; min-height: 0; object-fit: cover; object-position: top; }
+.anchor { position: absolute; top: 0; left: 50%; width: 1px; height: 1px; }
+.card:hover, .card:focus-visible { transform: rotate(var(--r)) translateY(-20px); z-index: 7; }
+.card:focus-visible { outline: 3px solid var(--forest); outline-offset: 5px; }
+.active { transform: rotate(var(--r)) translateY(-26px); box-shadow: 0 0 0 5px var(--tang); }
+.active, .active:hover, .active:focus-visible { transform: rotate(var(--r)) translateY(-26px); }
+
+.nameShort, .linkShort { display: none; }
+
+/* WebGL-шар: лежить над тими самими DOM-кнопками, не впливає на розкладку (absolute) */
+.sceneLayer { position: absolute; left: calc(var(--bleed) * -1); right: calc(min(var(--bleed), var(--pad)) * -1); bottom: 0; height: calc(var(--fan-visible) + 56px); z-index: 5;
+  /* Шар лише малює. Події йдуть на .fan (DOM-кнопки), тож поза картками шар нічого не перехоплює (текст, CTA, виділення). */
+  pointer-events: none; }
+/* Коли сцена вже намалювала кадр, CSS-картки стають невидимими, але лишаються на місці
+   й лишаються керованими з клавіатури (фокус-контур видно, бо сама кнопка не прозора через opacity). */
+.webgl .card { background: transparent; border-color: transparent; box-shadow: none; }
+.webgl .card > * { visibility: hidden; }
+.stripHelp { display: none; }
+
+/* Вужчий десктоп: картки трохи менші й зсунуті праворуч, щоб не заходити на текст */
+@media (min-width: 1181px) and (max-width: 1420px) {
+  .showcase { --card-w: 232px; --card-h: 456px; --fan-visible: 386px; --shift: 34px; --strip: 107px; }
+  .cardTop { font-size: 14px; }
+}
+
+/* Планшет і телефон: віяло стає нативною горизонтальною стрічкою */
+@media (max-width: 1180px) {
+  .sceneLayer { display: none; }
+  .showcase { padding-bottom: 16px; }
+  /* компактний підпис: коротка назва й невелике посилання в один рядок */
+  .caption { position: static; margin: 0 var(--pad) 10px; padding: 8px 8px 8px 16px; flex-wrap: nowrap; }
+  .captionLabel, .captionMeta, .nameFull, .linkFull { display: none; }
+  .nameShort, .linkShort { display: inline; }
+  .captionName { font-size: 18px; line-height: 1.25; }
+  .captionLink { padding: 0 18px; }
+  .leader { display: none; }
+  .fan {
+    position: static; height: auto; display: flex; gap: 12px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; padding: 10px var(--pad) 10px; scroll-padding: 0 var(--pad);
+    -webkit-overflow-scrolling: touch;
+  }
+  .card {
+    position: relative; left: auto; bottom: auto; flex: 0 0 min(64vw, 240px);
+    width: auto; height: 310px; scroll-snap-align: start; transform: none;
+  }
+  .card:hover, .card:focus-visible, .active, .active:hover { transform: none; }
+  .active { box-shadow: 0 0 0 4px var(--tang); }
+  .cardTop { min-height: 60px; }
+  .card:not(:last-child) .cardTop { padding-right: 12px; }
+  .stripHelp { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 var(--pad); }
+  .hint { font-size: 15px; color: var(--muted); }
+  .dots { display: flex; gap: 8px; flex: 0 0 auto; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--forest); }
+  .dotOn { background: var(--forest); }
+}
+

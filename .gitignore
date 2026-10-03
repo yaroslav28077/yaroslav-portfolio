@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.netlify/
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+*.log
+lighthouse-*.json
+lighthouse-*.html
+__pycache__/

@@ -1,0 +1,44 @@
+.section { padding: clamp(44px, 6vw, 96px) var(--pad); background: var(--linen); }
+
+.case {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(24px, 4vw, 64px); align-items: center;
+  margin-bottom: clamp(44px, 6vw, 88px);
+}
+.flip .media { order: 2; padding-right: 0; padding-left: clamp(0px, 4vw, 56px); }
+.flip .phone { right: auto; left: 0; transform: rotate(-4deg); }
+
+.media { position: relative; padding-right: clamp(0px, 4vw, 56px); padding-bottom: clamp(24px, 4vw, 56px); }
+.desktop { width: 100%; background: var(--white); border: 2px solid var(--forest); border-radius: var(--radius-img); }
+.phone {
+  position: absolute; right: 0; bottom: 0; width: clamp(96px, 17%, 170px);
+  background: var(--white); border: 2px solid var(--forest); border-radius: var(--radius-card);
+  box-shadow: 0 0 0 4px var(--tang); transform: rotate(4deg);
+}
+
+.name { font: 600 clamp(22px, 2.3vw, 32px)/1.2 var(--font-display); letter-spacing: -.03em; }
+.kind { margin-top: 6px; color: var(--muted); font-size: 16px; }
+.summary { max-width: 28em; margin-top: 16px; font-size: 18px; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; margin: 20px 0 26px; font-size: 16px; }
+.facts dt { color: var(--muted); }
+.facts dd { font-weight: 600; }
+
+/* Компактніші кейси: ті самі повноцінні прев'ю, лише вертикальна компоновка у дві колонки */
+.compactGrid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 64px); padding-top: clamp(28px, 3vw, 44px); border-top: 2px solid var(--forest);
+}
+.compact { display: block; margin-bottom: 0; }
+.compact .media { padding-right: clamp(0px, 3vw, 40px); padding-bottom: clamp(20px, 3vw, 40px); margin-bottom: 22px; }
+.compact .phone { width: clamp(84px, 20%, 130px); }
+.compact .name { font-size: clamp(20px, 1.9vw, 26px); }
+
+@media (max-width: 860px) {
+  .case { grid-template-columns: 1fr; gap: 22px; }
+  .flip .media { order: 0; padding-left: 0; }
+  .flip .phone { left: auto; right: 6px; transform: rotate(4deg); }
+  .media, .compact .media { padding-right: 0; padding-bottom: 40px; }
+  .phone, .compact .phone { width: 30%; right: 6px; }
+  .compactGrid { grid-template-columns: 1fr; }
+  .link { width: 100%; }
+}

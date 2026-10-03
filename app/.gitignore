@@ -1,0 +1,22 @@
+# залежності та збірка
+node_modules/
+dist/
+*.tsbuildinfo
+
+# локальні змінні середовища (шаблон — .env.example)
+.env
+.env.*
+!.env.example
+
+# Netlify CLI (створюється при linking сайту)
+.netlify/
+
+# службове
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+coverage/
+lighthouse-*.json
+lighthouse-*.html
